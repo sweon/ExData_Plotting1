@@ -1,0 +1,7 @@
+Sys.setlocale("LC_TIME", "C")
+png("plot2.png")
+plot(data$Global_active_power, type="l", xaxt = "n", main="", xlab="", ylab="Global Active Power (kilowatts)")
+at <- seq(1, length(data[,2]) + 1, by = 24 * 60)
+labels <- seq(from = data[at[1],2], by = "day", length.out = length(at))
+axis(side = 1, at = at, labels = format(labels, format = "%a"))
+dev.off()
